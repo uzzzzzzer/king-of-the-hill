@@ -69,7 +69,7 @@ class Player extends Entity {
     } else if (data.down) {
       this.velocity = Vector.fromPolar(-this.speed, this.tankAngle)
     } else if (!(data.up ^ data.down)) {
-      this.velocity = Vector.zero()
+      this.velocity = Vector.fromPolar(Constants.PLAYER_BASE_SPEED, this.tankAngle)
     }
 
     if (data.right) {
