@@ -94,7 +94,7 @@ class Drawing {
       } else {
         this.context.fillStyle = Constants.DRAWING_HP_MISSING_COLOR
       }
-      this.context.fillRect(-25 + 5 * i, -40, 5, 4)
+      this.context.fillRect(-25 + 5 * i, -80, 5, 4)
     }
 
     this.context.rotate(Drawing.translateAngle(player.tankAngle))
@@ -103,7 +103,7 @@ class Drawing {
       isSelf ? Constants.DRAWING_IMG_SELF_TANK :
         Constants.DRAWING_IMG_OTHER_TANK
     ])
-    this.context.rotate(-Drawing.translateAngle(player.tankAngle))
+    //this.context.rotate(-Drawing.translateAngle(player.tankAngle))
 
     //this.context.rotate(Drawing.translateAngle(player.turretAngle))
     //this.drawCenteredImage(this.images[
