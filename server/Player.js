@@ -94,7 +94,7 @@ class Player extends Entity {
     this.boundToWorld()
     this.tankAngle = Util.normalizeAngle(
       this.tankAngle + this.turnRate * deltaTime)
-
+    this.tankAngle = this.turretAngle;
     this.updatePowerups()
   }
 
