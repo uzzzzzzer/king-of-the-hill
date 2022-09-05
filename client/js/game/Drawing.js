@@ -97,20 +97,20 @@ class Drawing {
       this.context.fillRect(-25 + 5 * i, -40, 5, 4)
     }
 
-    this.context.rotate(Drawing.translateAngle(player.tankAngle))
+    //this.context.rotate(Drawing.translateAngle(player.tankAngle))
     this.drawCenteredImage(this.images[
       // eslint-disable-next-line multiline-ternary
-      isSelf ? Constants.DRAWING_IMG_SELF_TANK :
-        Constants.DRAWING_IMG_OTHER_TANK
+      isSelf ? Constants.DRAWING_IMG_SELF_KING :
+        Constants.DRAWING_IMG_OTHER_KING
     ])
-    this.context.rotate(-Drawing.translateAngle(player.tankAngle))
+    //this.context.rotate(-Drawing.translateAngle(player.tankAngle))
 
-    this.context.rotate(Drawing.translateAngle(player.turretAngle))
+    /*this.context.rotate(Drawing.translateAngle(player.turretAngle))
     this.drawCenteredImage(this.images[
       // eslint-disable-next-line multiline-ternary
       isSelf ? Constants.DRAWING_IMG_SELF_TURRET :
         Constants.DRAWING_IMG_OTHER_TURRET
-    ])
+    ])*/
 
     if (player.powerups[Constants.POWERUP_SHIELD]) {
       this.context.rotate(-Drawing.translateAngle(-player.turretAngle))
