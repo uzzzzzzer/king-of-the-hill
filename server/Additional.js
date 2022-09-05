@@ -17,9 +17,10 @@ class Additional extends Entity {
    * @param {Vector} velocity The starting velocity vector
    * @param {number} angle The orientation of the bullet
    * @param {string} type The type of this object
+   * @param {number} type The type of this object
    */
-  constructor(position, velocity, angle, type) {
-    super(position, velocity, Vector.zero(), Constants.BULLET_HITBOX_SIZE)
+  constructor(position, velocity, angle, type, hitbox_size) {
+    super(position, velocity, Vector.zero(), hitbox_size)
     this.angle = angle
     this.type = type
     this.destroyed = false
