@@ -11,12 +11,12 @@ const Vector = require('../lib/Vector')
  */
 class Additional extends Entity {
   /**
-   * Constructor for a additional object object.
+   * Constructor for an additional object.
    * @constructor
    * @param {Vector} position The starting position vector
    * @param {Vector} velocity The starting velocity vector
    * @param {number} angle The orientation of the bullet
-   * @param {Player} source The Player object firing the bullet
+   * @param {string} type The type of this object
    */
   constructor(position, velocity, angle, type) {
     super(position, velocity, Vector.zero(), Constants.BULLET_HITBOX_SIZE)
