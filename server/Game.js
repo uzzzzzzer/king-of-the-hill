@@ -172,9 +172,7 @@ class Game {
           e2.destroyed = true
         }
         if (e1 instanceof Player && e2 instanceof Additional) {
-          console.log(1)
           if(e2.type == "top"){
-            console.log(2)
             e1.time += deltaTime
           }
         }
