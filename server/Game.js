@@ -32,7 +32,7 @@ class Game {
     this.projectiles = []
     this.powerups = []
     this.additional_objects = [
-    new Additional(Vector.fromArray([500, 500]), Vector.zero(), 0, "hill")
+    new Additional(Vector.zero(), Vector.zero(), 0, "hill")
     /*Additional(Vector.fromArray([500, 500]), Vector.zero(), 0, "hill"),
     Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top")*/
     ]
