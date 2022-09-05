@@ -173,7 +173,7 @@ class Game {
         }
         if (e1 instanceof Player && e2 instanceof Additional) {
           if(e2.type == "top"){
-            e1.time += this.deltaTime
+            e1.time += this.deltaTime / 1000
           }
         }
 
