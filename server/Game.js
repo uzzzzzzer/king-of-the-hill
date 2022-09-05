@@ -5,6 +5,7 @@
  */
 
 const Bullet = require('./Bullet')
+const Additional = require('./Bullet')
 const Player = require('./Player')
 const Powerup = require('./Powerup')
 
