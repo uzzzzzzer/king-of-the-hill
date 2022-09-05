@@ -35,8 +35,9 @@ class Leaderboard {
     players.sort((a, b) => { return b.kills - a.kills })
     players.slice(0, 10).forEach(player => {
       const containercontainer = document.createElement('li')
-      const text =
-        `${player.name} - Kills: ${player.kills} Deaths: ${player.deaths}`
+      //const text =
+      //  `${player.name} - Kills: ${player.kills} Deaths: ${player.deaths}`
+      const text = `${player.name} - Time on the throne: ${player.time}`
       containercontainer.appendChild(document.createTextNode(text))
       this.container.appendChild(containercontainer)
     })
