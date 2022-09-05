@@ -215,7 +215,8 @@ class Game {
         self: currentPlayer,
         players: players,
         projectiles: this.projectiles,
-        powerups: this.powerups
+        powerups: this.powerups,
+        additional: this.additional_objects
       })
     })
   }
