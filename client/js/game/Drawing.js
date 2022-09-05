@@ -158,7 +158,7 @@ class Drawing {
         this.context.drawImage(this.images[Constants.DRAWING_IMG_TILE], x, y)
       }
     }
-    this.context.drawImage(this.images[Constants.DRAWING_IMG_BULLET], 500 - start.x, 500 - start.y)
+    this.context.drawImage(this.images[Constants.DRAWING_IMG_BULLET], 500 + start.x, 500 + start.y)
   }
 }
 
