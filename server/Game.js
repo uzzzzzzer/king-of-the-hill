@@ -33,8 +33,8 @@ class Game {
     this.projectiles = []
     this.powerups = []
     this.additional_objects = [
-    Additional(Vector.fromArray([500, 500]), Vector.zero(), 0, "hill"),
-    Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top")
+    new Additional(Vector.fromArray([500, 500]), Vector.zero(), 0, "hill", 500),
+    new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top", 10)
     ]
 
     this.lastUpdateTime = 0
