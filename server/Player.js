@@ -65,17 +65,21 @@ class Player extends Entity {
    */
   updateOnInput(data) {
     if (data.up) {
-      this.velocity = Vector.fromPolar(this.speed, this.tankAngle)
+      //this.velocity = Vector.fromPolar(this.speed, this.tankAngle)
+      this.velocity = Vector.fromPolar(this.speed, 0);
     } else if (data.down) {
-      this.velocity = Vector.fromPolar(-this.speed, this.tankAngle)
+      //this.velocity = Vector.fromPolar(-this.speed, this.tankAngle)
+      this.velocity = Vector.fromPolar(this.speed, 180);
     } else if (!(data.up ^ data.down)) {
       this.velocity = Vector.zero()
     }
 
     if (data.right) {
-      this.turnRate = Constants.PLAYER_TURN_RATE
+      //this.turnRate = Constants.PLAYER_TURN_RATE
+      this.velocity = Vector.fromPolar(this.speed, 90);
     } else if (data.left) {
-      this.turnRate = -Constants.PLAYER_TURN_RATE
+      //this.turnRate = -Constants.PLAYER_TURN_RATE
+      this.velocity = Vector.fromPolar(this.speed, 270);
     } else if (!(data.left ^ data.right)) {
       this.turnRate = 0
     }
