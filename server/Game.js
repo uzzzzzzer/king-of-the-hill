@@ -128,7 +128,8 @@ class Game {
     const entities = [
       ...this.players.values(),
       ...this.projectiles,
-      ...this.powerups
+      ...this.powerups,
+      ...this.additional_objects
     ]
     entities.forEach(
       entity => { entity.update(this.lastUpdateTime, this.deltaTime) })
