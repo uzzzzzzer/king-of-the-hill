@@ -161,6 +161,7 @@ class Game {
         }
 
         // Bullet-Bullet interaction
+        
         if (e1 instanceof Bullet && e2 instanceof Bullet &&
           e1.source !== e2.source) {
           e1.destroyed = true
@@ -172,6 +173,11 @@ class Game {
           e1 instanceof Bullet && e2 instanceof Powerup) {
           e1.destroyed = true
           e2.destroyed = true
+        }
+        if (e1 instanceof Bullet && 
+            Math.max(e1.position.x, e1.position.y) >= Constants.WORLD_MAX ||
+            Math.min(e1.position.x, e1.position.y) <= Constants.WORLD_MIN){
+          e1.destroyed = true;
         }
       }
     }
