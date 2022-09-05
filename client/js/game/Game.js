@@ -145,11 +145,12 @@ class Game {
       this.drawing.clear()
 
       this.drawing.drawTiles()
+      
+      this.additional_objects.forEach(this.drawing.drawAdditional.bind(this.drawing))
 
       this.projectiles.forEach(this.drawing.drawBullet.bind(this.drawing))
 
       this.powerups.forEach(this.drawing.drawPowerup.bind(this.drawing))
-      this.additional_objects.forEach(this.drawing.drawAdditional.bind(this.drawing))
 
       this.drawing.drawTank(true, this.self)
       this.players.forEach(tank => this.drawing.drawTank(false, tank))
