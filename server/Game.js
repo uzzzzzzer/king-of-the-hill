@@ -34,7 +34,7 @@ class Game {
     this.powerups = []
     this.additional_objects = [
     new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "hill", 500),
-    new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top", 10)
+    new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top", 0)
     ]
 
     this.lastUpdateTime = 0
@@ -169,6 +169,11 @@ class Game {
         if (e1 instanceof Player && e2 instanceof Powerup) {
           e1.applyPowerup(e2)
           e2.destroyed = true
+        }
+        if (e1 instanceof Player && e2 instanceof Additional) {
+          if(e2.type == "top"){
+            e1.time += deltaTime
+          }
         }
 
         // Bullet-Bullet interaction
