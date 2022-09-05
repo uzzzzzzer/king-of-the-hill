@@ -144,6 +144,14 @@ class Drawing {
     this.drawCenteredImage(this.images[powerup.type])
     this.context.restore()
   }
+  
+  drawAdditional(object) {
+    this.context.save()
+    const canvasCoords = this.viewport.toCanvas(object.position)
+    this.context.translate(canvasCoords.x, canvasCoords.y)
+    this.drawCenteredImage(this.images[object.type])
+    this.context.restore()
+  }
 
   /**
    * Draws the background tiles to the canvas.
@@ -158,7 +166,6 @@ class Drawing {
         this.context.drawImage(this.images[Constants.DRAWING_IMG_TILE], x, y)
       }
     }
-    this.context.drawImage(this.images[Constants.DRAWING_IMG_HILL], 500 + start.x, 500 + start.y)
   }
 }
 
