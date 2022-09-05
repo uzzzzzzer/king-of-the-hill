@@ -38,6 +38,7 @@ class Game {
     this.players = []
     this.projectiles = []
     this.powerups = []
+    this.additional_objects = []
 
     this.animationFrameId = null
     this.lastUpdateTime = 0
@@ -87,6 +88,7 @@ class Game {
     this.players = state.players
     this.projectiles = state.projectiles
     this.powerups = state.powerups
+    this.additional_objects = state.additional
 
     this.viewport.updateTrackingPosition(state.self)
     this.leaderboard.update(state.players)
@@ -147,6 +149,7 @@ class Game {
       this.projectiles.forEach(this.drawing.drawBullet.bind(this.drawing))
 
       this.powerups.forEach(this.drawing.drawPowerup.bind(this.drawing))
+      this.additional_objects.forEach(this.drawing.drawAdditional.bind(this.drawing))
 
       this.drawing.drawTank(true, this.self)
       this.players.forEach(tank => this.drawing.drawTank(false, tank))
