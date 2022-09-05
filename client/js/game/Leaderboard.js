@@ -32,7 +32,7 @@ class Leaderboard {
     while (this.container.firstChild) {
       this.container.removeChild(this.container.firstChild)
     }
-    players.sort((a, b) => { return b.kills - a.kills })
+    players.sort((a, b) => { return b.time - a.time })
     players.slice(0, 10).forEach(player => {
       const containercontainer = document.createElement('li')
       //const text =
