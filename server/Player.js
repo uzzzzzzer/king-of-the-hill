@@ -38,6 +38,7 @@ class Player extends Entity {
     this.speed = Constants.PLAYER_DEFAULT_SPEED
     this.shotCooldown = Constants.PLAYER_SHOT_COOLDOWN
     this.lastShotTime = 0
+    this.time = 0
     this.health = Constants.PLAYER_MAX_HEALTH
     this.hitboxSize = Constants.PLAYER_DEFAULT_HITBOX_SIZE
 
