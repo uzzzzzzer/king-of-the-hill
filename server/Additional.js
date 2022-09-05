@@ -18,9 +18,10 @@ class Additional extends Entity {
    * @param {number} angle The orientation of the bullet
    * @param {Player} source The Player object firing the bullet
    */
-  constructor(position, velocity, angle, source) {
+  constructor(position, velocity, angle, type) {
     super(position, velocity, Vector.zero(), Constants.BULLET_HITBOX_SIZE)
     this.angle = angle
+    this.type = type
     this.destroyed = false
   }
 
