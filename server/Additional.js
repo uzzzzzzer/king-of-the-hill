@@ -35,10 +35,6 @@ class Additional extends Entity {
   update(lastUpdateTime, deltaTime) {
     const distanceStep = Vector.scale(this.velocity, deltaTime)
     this.position.add(distanceStep)
-    this.distanceTraveled += distanceStep.mag2
-    if (this.inWorld() || distanceStep > Bullet.MAX_TRAVEL_DISTANCE_SQ) {
-      this.destroyed = true
-    }
   }
 }
 
