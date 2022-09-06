@@ -227,7 +227,6 @@ class Game {
    */
   sendState() {
     const players = [...this.players.values()]
-    console.log(players)
     this.clients.forEach((client, socketID) => {
       const currentPlayer = this.players.get(socketID)
       this.clients.get(socketID).emit(Constants.SOCKET_UPDATE, {
