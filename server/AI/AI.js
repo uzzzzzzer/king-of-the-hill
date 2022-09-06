@@ -16,7 +16,8 @@ function get_ai_action(index, players){
 		"up": optimum[2],
 		"down": optimum[3],
 		"left": optimum[4],
-		"right": optimum[5]
+		"right": optimum[5],
+		"shoot": true
 	}
 	return data
 	
