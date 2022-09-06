@@ -145,7 +145,6 @@ class Game {
       if (e1 instanceof Player){
         e1.king = 0
         e1.tomato = ((currentTime - e1.last_tomato) < Constants.TOMATO_TIME) * 1
-        console.log((currentTime - e1.last_tomato))
       }
     }
     for (let i = 0; i < entities.length; ++i) {
