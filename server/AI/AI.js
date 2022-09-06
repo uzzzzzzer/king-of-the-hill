@@ -7,7 +7,7 @@ function get_ai_action(index, players){
 			var dist = Math.sqrt((p.x - self.x)*(p.x - self.x) + (p.y - self.y)*(p.y - self.y))
 			var deg =(Math.atan((self.y-p.y)/(self.x-p.x))*180/Math.PI) + 180 * ((self.x-p.x)<0)
 			if(dist < optimum[0]){
-				optimum = [dist, deg, 1000 > self.y, 1000 < self.y, 1000 < self.x, 1000 > self.x]
+				optimum = [dist, deg, 1000 < self.y, 1000 > self.y, 1000 < self.x, 1000 > self.x]
 			}
 		}
 	}
