@@ -216,6 +216,7 @@ class Game {
     var ps = this.players.values();
     for(var i = 0; i < ps.length; i++){
       if (ps[i].socketID.includes("Bot")){
+        console.log("Bot performs an action!");
         updatePlayerOnInput(ps[i].socketID, AI(ps))
       }
     }
