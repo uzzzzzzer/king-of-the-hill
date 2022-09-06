@@ -216,22 +216,23 @@ class Player extends Entity {
    * Handles the spawning (and respawning) of the player.
    */
   spawn() {
-    if(Math.random() > 0){
+    var m = Math.random();
+    if(m > 0){
     this.position = new Vector(Constants.WORLD_MIN + Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))
     }
-    if(Math.random() > 0.25){
+    if(m > 0.25){
     this.position = new Vector(Constants.WORLD_MAX - Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))
     }
-    if(Math.random() > 0.5){
+    if(m > 0.5){
     this.position = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MIN + Constants.WORLD_PADDING)
     }
-    if(Math.random() < 0.75){
+    if(m > 0.75){
     this.position = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MAX - Constants.WORLD_PADDING)
