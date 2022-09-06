@@ -217,24 +217,24 @@ class Player extends Entity {
    */
   spawn() {
     if(Math.random() > 0){
-    this.position = new Vector(WORLD_MIN + Constants.WORLD_PADDING,
+    this.position = new Vector(Constants.WORLD_MIN + Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING), WORLD_MIN)
     }
     if(Math.random() > 0.25){
-    this.position = new Vector(WORLD_MAX - Constants.WORLD_PADDING,
+    this.position = new Vector(Constants.WORLD_MAX - Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))
     }
     if(Math.random() > 0.5){
     this.position = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
-        Constants.WORLD_MAX - Constants.WORLD_PADDING), WORLD_MIN + Constants.WORLD_PADDING)
+        Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MIN + Constants.WORLD_PADDING)
     }
     if(Math.random() < 0.75){
     this.position = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
-        Constants.WORLD_MAX - Constants.WORLD_PADDING), WORLD_MAX - Constants.WORLD_PADDING)
+        Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MAX - Constants.WORLD_PADDING)
     }
     /*this.position = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
