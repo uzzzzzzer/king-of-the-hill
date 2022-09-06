@@ -134,13 +134,17 @@ class Game {
     entities.forEach(
       entity => { entity.update(this.lastUpdateTime, this.deltaTime) })
     for (let i = 0; i < entities.length; ++i) {
+      let e1 = entities[i]
+      e1.king = false
+    }
+    for (let i = 0; i < entities.length; ++i) {
       for (let j = i + 1; j < entities.length; ++j) {
         let e1 = entities[i]
         let e2 = entities[j]
         if (e1 instanceof Bullet && 
             Math.max(e1.position.x, e1.position.y) >= Constants.WORLD_MAX ||
             Math.min(e1.position.x, e1.position.y) <= Constants.WORLD_MIN){
-          e1.destroyed = true;
+          e1.destroyed = true
         }
         if (!e1.collided(e2)) {
           continue
@@ -173,6 +177,7 @@ class Game {
         }
         if (e1 instanceof Player && e2 instanceof Additional) {
           if(e2.type == "top"){
+            e1.king = true
             e1.time += this.deltaTime / 1000
             e1.position[0] = e2.position[0]
             e1.position[1] = e2.position[1]
