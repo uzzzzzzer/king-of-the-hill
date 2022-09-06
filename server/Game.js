@@ -11,6 +11,7 @@ const Player = require('./Player')
 const Powerup = require('./Powerup')
 
 const Constants = require('../lib/Constants')
+const AI = require('./AI/AI')
 
 /**
  * Game class.
