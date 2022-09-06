@@ -136,6 +136,7 @@ class Game {
     for (let i = 0; i < entities.length; ++i) {
       let e1 = entities[i]
       e1.king = false
+      e1.tomato = currentTime - e1.last_tomato < Constants.TOMATO_TIME
     }
     for (let i = 0; i < entities.length; ++i) {
       for (let j = i + 1; j < entities.length; ++j) {
@@ -157,6 +158,7 @@ class Game {
         }
         if (e1 instanceof Player && e2 instanceof Bullet &&
           e2.source !== e1) {
+          e1.last_tomato = currentTime
           e1.damage(e2.damage)
           if (e1.isDead()) {
             e1.spawn()
