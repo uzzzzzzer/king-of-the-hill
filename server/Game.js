@@ -36,6 +36,8 @@ class Game {
     new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "hill", 500),
     new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top", 0)
     ]
+    this.players["Bot[1]"] = new Player("JIGIT", "Bot[1]")
+    this.players["Bot[2]"] = new Player("ZLOY NEGR", "Bot[2]")
 
     this.lastUpdateTime = 0
     this.deltaTime = 0
