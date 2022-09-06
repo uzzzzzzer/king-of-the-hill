@@ -1,6 +1,6 @@
 /**
  * @fileoverview Webpack configuration file for client side scripts.
- * @author alvin@omgimanerd.tech (Alvin Lin)
+ * @author Zloy Negr
  */
 
 const path = require('path')
