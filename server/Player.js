@@ -46,6 +46,9 @@ class Player extends Entity {
 
     this.kills = 0
     this.deaths = 0
+    this.king = 0
+    this.last_tomato = 0
+    this.tomato = 0
   }
 
   /**
