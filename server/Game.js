@@ -169,7 +169,7 @@ class Game {
         if (e1 instanceof Player && e2 instanceof Bullet &&
           e2.source !== e1) {
           e1.tomato = 1
-          e1.last_tomato = 1
+          e1.last_tomato = currentTime
           e1.damage(e2.damage)
           if (e1.isDead()) {
             e1.spawn()
