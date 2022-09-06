@@ -33,10 +33,10 @@ class Game {
     this.players = new Map()
     this.projectiles = []
     this.powerups = []
-    this.additional_objects = [
+    /*this.additional_objects = [
     new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "hill", 500),
     new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top", 0)
-    ]
+    ]*/
     this.players.set("Bot[1]", Player.create("JIGIT", "Bot[1]"))
     this.players.set("Bot[2]", Player.create("ZLOY NEGR", "Bot[2]"))
 
