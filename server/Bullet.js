@@ -56,7 +56,7 @@ class Bullet extends Entity {
     const distanceStep = Vector.scale(this.velocity, deltaTime)
     this.position.add(distanceStep)
     this.distanceTraveled += distanceStep.mag2
-    //console.log(this.distanceTraveled , Constants.BULLET_MAX_TRAVEL_DISTANCE_SQ)
+    console.log(this.distanceTraveled , Constants.BULLET_MAX_TRAVEL_DISTANCE_SQ)
     if (this.inWorld() || this.distanceTraveled > Constants.BULLET_MAX_TRAVEL_DISTANCE_SQ) {
       this.destroyed = true
     }
