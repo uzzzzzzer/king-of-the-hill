@@ -141,6 +141,13 @@ class Game {
     entities.forEach(
       entity => { entity.update(this.lastUpdateTime, this.deltaTime) })
     for (let i = 0; i < entities.length; ++i) {
+      let e1 = entities[i]
+      if (e1 instanceof Player){
+        e1.king = 0
+        e1.tomato = (currentTime - e1.last_tomato < Constants.TOMATO_TIME) * 1
+      }
+    }
+    for (let i = 0; i < entities.length; ++i) {
       for (let j = i + 1; j < entities.length; ++j) {
         let e1 = entities[i]
         let e2 = entities[j]
@@ -160,6 +167,8 @@ class Game {
         }
         if (e1 instanceof Player && e2 instanceof Bullet &&
           e2.source !== e1) {
+          e1.tomato = 1
+          e1.last_tomato = 1
           e1.damage(e2.damage)
           if (e1.isDead()) {
             e1.spawn()
@@ -180,6 +189,7 @@ class Game {
         }
         if (e1 instanceof Player && e2 instanceof Additional) {
           if(e2.type == "top"){
+            e1.king = 1
             e1.time += this.deltaTime / 1000
             e1.position[0] = e2.position[0]
             e1.position[1] = e2.position[1]
