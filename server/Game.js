@@ -214,7 +214,7 @@ class Game {
       this.powerups.push(Powerup.create())
     }
     var ps = this.players.values()
-    console.log(ps.length)
+    console.log(this.players)
     for(var i = 0; i < ps.length; i++){
       console.log("Bot[1]".includes("Bot"))
       if (ps[i].socketID.includes("Bot")){
