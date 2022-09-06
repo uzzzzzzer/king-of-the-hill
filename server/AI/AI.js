@@ -13,10 +13,11 @@ function get_ai_action(index, players){
 	}
 	data = {
 		"turretAngle": optimum[1],
-		"up": optimum[2],
-		"down": optimum[3],
-		"left": optimum[4],
-		"right": optimum[5]
+		"up": optimum[2] * (Math.random() > 0.5),
+		"down": optimum[3] * (Math.random() > 0.5),
+		"left": optimum[4] * (Math.random() > 0.5),
+		"right": optimum[5] * (Math.random() > 0.5),
+		"shoot": true
 	}
 	return data
 	
