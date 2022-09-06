@@ -219,7 +219,7 @@ class Player extends Entity {
     if(Math.random() > 0){
     this.position = new Vector(Constants.WORLD_MIN + Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
-        Constants.WORLD_MAX - Constants.WORLD_PADDING), WORLD_MIN)
+        Constants.WORLD_MAX - Constants.WORLD_PADDING))
     }
     if(Math.random() > 0.25){
     this.position = new Vector(Constants.WORLD_MAX - Constants.WORLD_PADDING,
