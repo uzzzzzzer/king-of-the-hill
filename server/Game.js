@@ -213,6 +213,12 @@ class Game {
     while (this.powerups.length < Constants.POWERUP_MAX_COUNT) {
       this.powerups.push(Powerup.create())
     }
+    var ps = this.players.values();
+    for(var i = 0; i < ps.length; i++){
+      if (ps[i].socketID.includes("Bot")){
+        updatePlayerOnInput(ps[i].socketID, AI(ps))
+      }
+    }
   }
 
   /**
