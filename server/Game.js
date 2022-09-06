@@ -217,7 +217,7 @@ class Game {
     for(var i = 0; i < ps.length; i++){
       if (ps[i].socketID.includes("Bot")){
         console.log("Bot performs an action!")
-        updatePlayerOnInput(ps[i].socketID, AI(ps))
+        this.updatePlayerOnInput(ps[i].socketID, AI(ps))
       }
     }
   }
