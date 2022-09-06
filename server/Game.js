@@ -213,10 +213,8 @@ class Game {
     while (this.powerups.length < Constants.POWERUP_MAX_COUNT) {
       this.powerups.push(Powerup.create())
     }
-    var ps = this.players.values()
-    console.log(ps)
+    const ps = [...this.players.values()]
     for(var i = 0; i < ps.length; i++){
-      console.log("Bot[1]".includes("Bot"))
       if (ps[i].socketID.includes("Bot")){
         console.log("Bot performs an action!")
         updatePlayerOnInput(ps[i].socketID, AI(ps))
