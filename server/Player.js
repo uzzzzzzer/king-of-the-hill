@@ -50,6 +50,7 @@ class Player extends Entity {
     this.last_tomato = 0
     this.tomato = 0
     this.in_castle = 0
+    this.army = 0
   }
 
   /**
