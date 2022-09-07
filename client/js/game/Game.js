@@ -44,6 +44,7 @@ class Game {
     this.animationFrameId = null
     this.lastUpdateTime = 0
     this.deltaTime = 0
+    this.time_left = Constants.GAME_TIME
   }
 
   /**
