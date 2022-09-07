@@ -106,6 +106,18 @@ setInterval(() => {
       game.update()
       game.sendState()
     }
+    if(game.finished){
+      var ps = [...game.players.keys()]
+      for(var j = 0; j < ps.length; j++){
+        if(sockets.get(ps[j]) <= i){
+          sockets.delete(ps[j])
+        }
+        if(sockets.get(ps[j]) > i){
+          sockets.set(ps[j], sockets.get(ps[j]) - 1)
+        }
+      }
+      games.splice(i, 1)
+    }
   }
 }, FRAME_RATE)
 
