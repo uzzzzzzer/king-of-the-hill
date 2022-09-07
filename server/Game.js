@@ -185,6 +185,14 @@ class Game {
           e1 = entities[j]
           e2 = entities[i]
         }
+        if (e1 instanceof Player && e2 instanceof Player) {
+          var a = e1.army
+          var b = e2.army
+          e1.army -= this.deltaTime * b * Constants.PLAYER_DAMAGE
+          e2.army -= this.deltaTime * a * Constants.PLAYER_DAMAGE
+          e1.army = Math.max(e1.army, 0)
+          e2.army = Math.max(e2.army, 0)
+        }
         if (e1 instanceof Player && e2 instanceof Powerup) {
           e1.applyPowerup(e2)
           e2.destroyed = true
