@@ -207,7 +207,7 @@ class Game {
           }
         }
         if (e1 instanceof Player && e2 instanceof Castle) {
-          if(e2.owner == e1.SocketID){
+          if(e2.owner == e1.socketID){
             e1.army += this.deltaTime * Constants.CASTLE_RECRUITS
           }
           else{
