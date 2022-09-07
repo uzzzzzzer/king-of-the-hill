@@ -32,7 +32,6 @@ $(document).ready(() => {
       socket.emit('new-player', { name }, () => {
         $('#name-prompt-overlay').remove()
         $('#canvas').focus()
-        game.run()
       })
     } else {
       window.alert('Your name cannot be blank or over 20 characters.')
