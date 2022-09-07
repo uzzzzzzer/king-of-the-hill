@@ -86,7 +86,7 @@ class Game {
    * Starts the animation and update loop to run the game.
    */
   run() {
-    $('#name-prompt-overlay').remove()
+    $('#name-prompt-overlay').hide()
     this.running = 1
     const currentTime = Date.now()
     this.deltaTime = currentTime - this.lastUpdateTime
@@ -102,6 +102,11 @@ class Game {
    * @param {Object} state The game state received from the server
    */
   onReceiveGameState(state) {
+    if(state.finished){
+      $('#name-prompt-overlay').show()
+      $('#txt').val(state.winner + " wins the game!")
+      return
+    }
     if(!this.running){
       this.run()
     }
