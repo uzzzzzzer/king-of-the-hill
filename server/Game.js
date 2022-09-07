@@ -84,11 +84,13 @@ class Game {
     this.deltaTime += currentTime - this.lastUpdateTime
     console.log(this.deltaTime)
     this.waitTime += this.deltaTime
-    this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM - Constants.MAX_BOTS * (this.waitTime >= Constants.MAX_WAIT_TIME)
+    this.full = [...this.players.values()].length >= (Constants.PLAYERS_IN_ROOM - Constants.MAX_BOTS * (this.waitTime >= Constants.MAX_WAIT_TIME))
     if(this.full){
+      console.log(this.waitTime, Constants.MAX_WAIT_TIME)
       for(var i = 0; i < Constants.PLAYERS_IN_ROOM - [...this.players.values()].length; i++){
         var names = ["JIGIT", "ZLOY NEGR", "KING", "(-_-)", "(•_•)", "King of the hill", "Evil king"];
         this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + i + ")", "Bot[" + i + "]"))
+        i--
       }
     }
     this.lastUpdateTime = Date.now()
