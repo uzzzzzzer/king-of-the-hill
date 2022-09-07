@@ -91,7 +91,6 @@ class Game {
       for(var i = 0; i < b; i++){
         var names = ["JIGIT", "ZLOY NEGR", "KING", "(-_-)", "(•_•)", "King of the hill", "Evil king"];
         this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + i + ")", "Bot[" + i + "]"))
-        i--
       }
     }
     this.lastUpdateTime = Date.now()
