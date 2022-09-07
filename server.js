@@ -22,7 +22,9 @@ const Constants = require('./lib/Constants')
 const app = express()
 const server = http.Server(app)
 const io = socketIO(server)
-const game = new Game()
+//const game = new Game()
+var games = [new Game()]
+var sockets = new Map()
 
 app.set('port', PORT)
 
@@ -42,7 +44,12 @@ app.get('/', (request, response) => {
  */
 io.on('connection', socket => {
   socket.on(Constants.SOCKET_NEW_PLAYER, (data, callback) => {
+    let game = games[games.length - 1]
     game.addNewPlayer(data.name, socket)
+    if(game.players.length >= 4){
+      games.push(new Game())
+    }
+    sockets.set(socket, games.length - 1)
     game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
       name: CHAT_TAG,
       message: `${data.name} has joined the game.`,
@@ -53,25 +60,34 @@ io.on('connection', socket => {
   })
 
   socket.on(Constants.SOCKET_PLAYER_ACTION, data => {
-    game.updatePlayerOnInput(socket.id, data)
+    if(sockets[socket.id]){
+      let game = games[sockets[socket.id]]
+      game.updatePlayerOnInput(socket.id, data)
+    }
   })
 
   socket.on(Constants.SOCKET_CHAT_CLIENT_SERVER, data => {
-    game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
-      name: game.getPlayerNameBySocketId(socket.id),
-      message: data
+    if(sockets[socket.id]){
+      let game = games[sockets[socket.id]]
+      game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
+        name: game.getPlayerNameBySocketId(socket.id),
+        message: data
     })
    })
+    }
   })
 
   socket.on(Constants.SOCKET_DISCONNECT, () => {
-    const name = game.removePlayer(socket.id)
-    game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
-      name: CHAT_TAG,
-      message: ` ${name} has left the game.`,
-      isNotification: true
-    })
-  })
+    if(sockets[socket.id]){
+      let game = games[sockets[socket.id]]
+      const name = game.removePlayer(socket.id)
+      game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
+        name: CHAT_TAG,
+        message: ` ${name} has left the game.`,
+        isNotification: true
+      })
+      })
+    }
  })
 })
 
@@ -80,8 +96,14 @@ io.on('connection', socket => {
  * clients every update.
  */
 setInterval(() => {
-  game.update()
-  game.sendState()
+  for(var i = 0; i < games.length; i++){
+    let game = games[i]
+    game.checkIfFull()
+    if(game.full){
+      game.update()
+      game.sendState()
+    }
+  }
 }, FRAME_RATE)
 
 // Starts the server.
