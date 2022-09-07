@@ -251,10 +251,10 @@ class Player extends Entity {
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))*/
     this.castle = new Castle(vct, Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
-    var vctCopy = [];
+    var vctCopy = []
 
     for (var i = 0; i < vct.length; i++) {
-      vctCopy[i] = vct[i];
+      vctCopy[i] = vct[i]
     }
     this.position = vctCopy
     this.angle = Util.randRange(0, 2 * Math.PI)
