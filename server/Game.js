@@ -78,8 +78,8 @@ class Game {
     this.players.set(socket.id, Player.create(name, socket.id))
   }
   checkIfFull(){
-    this.full = this.players.length >= Constants.PLAYERS_IN_ROOM
-    console.log(this.players.length)
+    this.full = this.players.values().length >= Constants.PLAYERS_IN_ROOM
+    console.log(this.players.values().length)
   }
   /**
    * Removes the player with the given socket ID and returns the name of the
