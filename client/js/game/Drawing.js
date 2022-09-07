@@ -100,7 +100,7 @@ class Drawing {
     //this.context.rotate(Drawing.translateAngle(player.tankAngle))
     this.drawCenteredImage(this.images[
       // eslint-disable-next-line multiline-ternary
-      [Constants.DRAWING_IMG_SELF_KING, Constants.DRAWING_IMG_OTHER_KING][(isSelf) * 1]
+      [Constants.DRAWING_IMG_SELF_KING, Constants.DRAWING_IMG_OTHER_KING][(!isSelf) * 1]
     ])
     //this.context.rotate(-Drawing.translateAngle(player.tankAngle))
 
@@ -119,12 +119,10 @@ class Drawing {
     this.context.translate(canvasCoords.x, canvasCoords.y)
     if(isSelf){
       this.drawCenteredImage(this.images[Constants.DRAWING_IMG_SELF_CASTLE])
-      console.log(1)
     }
-    /*else{
+    else{
       this.drawCenteredImage(this.images[Constants.DRAWING_IMG_OTHER_CASTLE])
-      console.log(2)
-    }*/
+    }
     this.context.restore()
   }
 
