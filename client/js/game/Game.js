@@ -103,6 +103,7 @@ class Game {
    */
   onReceiveGameState(state) {
     if(state.finished){
+      alert()
       $('#name-prompt-overlay').show()
       $('#txt').val(state.winner + " wins the game!")
       return
