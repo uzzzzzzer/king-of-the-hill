@@ -8,6 +8,7 @@ const Bullet = require('./Bullet')
 const Vector = require('../lib/Vector')
 const Additional = require('./Additional')
 const Player = require('./Player')
+const Castle = require('./Castle')
 const Powerup = require('./Powerup')
 
 const Constants = require('../lib/Constants')
