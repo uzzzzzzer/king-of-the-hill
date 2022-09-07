@@ -152,8 +152,9 @@ class Game {
 
       this.powerups.forEach(this.drawing.drawPowerup.bind(this.drawing))
 
-      this.drawing.drawTank(true, this.self)
       this.players.forEach(tank => this.drawing.drawTank(false, tank))
+      
+      this.drawing.drawTank(true, this.self)
     }
   }
 }
