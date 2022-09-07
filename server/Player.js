@@ -53,6 +53,8 @@ class Player extends Entity {
     this.in_castle = 0
     this.army = 0
     this.castle = new Castle(Vector.zero(), Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
+    this.last_fight = 0
+    this.fight = 0
   }
 
   /**
@@ -115,6 +117,7 @@ class Player extends Entity {
       this.in_castle = 0
     }
     this.tomato = ((lastUpdateTime - this.last_tomato) < Constants.TOMATO_TIME) * 1
+    this.fight = ((lastUpdateTime - this.last_fight) < Constants.FIGHT_TIME) * 1
     this.updatePowerups()
     if(this.army <= 0 || this.army > 10000000000){
       this.army = 0
