@@ -46,7 +46,7 @@ io.on('connection', socket => {
   socket.on(Constants.SOCKET_NEW_PLAYER, (data, callback) => {
     let game = games[games.length - 1]
     game.addNewPlayer(data.name, socket)
-    if(game.players.length >= 4){
+    if(game.players.length >= Constants.PLAYERS_IN_ROOM){
       games.push(new Game())
     }
     sockets.set(socket, games.length - 1)
