@@ -1,7 +1,7 @@
 /**
  * Game class on the server to manage the state of existing players and
  * and entities.
- * @author alvin@omgimanerd.tech (Alvin Lin)
+ * @author Zloy Negr
  */
 
 const Bullet = require('./Bullet')
@@ -35,8 +35,8 @@ class Game {
     this.projectiles = []
     this.powerups = []
     this.additional_objects = [
-    new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "hill", 500),
-    new Additional(Vector.fromArray([1000, 1000]), Vector.zero(), 0, "top", 0)
+    new Additional(Vector.fromArray([Constants.WORLD_MIN/2, Constants.WORLD_MIN/2]), Vector.zero(), 0, "hill", 500),
+    new Additional(Vector.fromArray([Constants.WORLD_MIN/2, Constants.WORLD_MIN/2]), Vector.zero(), 0, "top", 0)
     ]
     var names = ["JIGIT", "ZLOY NEGR", "KING", "(-_-)", "(•_•)", "King of the hill", "Evil king"];
     for(var i = 0; i < Constants.MAX_BOTS; i++){
