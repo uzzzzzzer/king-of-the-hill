@@ -155,7 +155,7 @@ class Game {
           if(e2.castle.collided(e1.castle) && e1.army < e2.army){
             e1.spawn()
           }
-          else{
+          else if(e2.castle.collided(e1.castle)){
             e2.spawn()
           }
         }
