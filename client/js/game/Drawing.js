@@ -115,7 +115,14 @@ class Drawing {
       this.context.rotate(-Drawing.translateAngle(-player.turretAngle))
       this.drawCenteredImage(this.images[Constants.DRAWING_IMG_SHIELD])
     }
-
+    const canvasCoords = this.viewport.toCanvas(player.castle.position)
+    this.context.translate(canvasCoords.x, canvasCoords.y)
+    if(isSelf){
+      this.drawCenteredImage(this.images[Constants.DRAWING_IMG_SELF_CASTLE])
+    }
+    else{
+      this.drawCenteredImage(this.images[Constants.DRAWING_IMG_OTHER_CASTLE])
+    }
     this.context.restore()
   }
 
