@@ -102,6 +102,7 @@ class Game {
    * @param {Object} state The game state received from the server
    */
   onReceiveGameState(state) {
+    console.log(state)
     if(state.finished){
       alert()
       $('#name-prompt-overlay').show()
