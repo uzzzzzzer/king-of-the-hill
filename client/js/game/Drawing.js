@@ -80,7 +80,7 @@ class Drawing {
    */
   drawTank(isSelf, player) {
     this.context.save()
-    const canvasCoords = this.viewport.toCanvas(player.position)
+    var canvasCoords = this.viewport.toCanvas(player.position)
     this.context.translate(canvasCoords.x, canvasCoords.y)
 
     this.context.textAlign = 'center'
