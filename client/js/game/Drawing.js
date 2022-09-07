@@ -102,6 +102,7 @@ class Drawing {
       // eslint-disable-next-line multiline-ternary
       [Constants.DRAWING_IMG_SELF_KING, Constants.DRAWING_IMG_OTHER_KING][(!isSelf) * 1]
     ])
+    console.log([Constants.DRAWING_IMG_SELF_KING, Constants.DRAWING_IMG_OTHER_KING][(!isSelf) * 1])
     //this.context.rotate(-Drawing.translateAngle(player.tankAngle))
 
     /*this.context.rotate(Drawing.translateAngle(player.turretAngle))
