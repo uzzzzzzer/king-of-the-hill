@@ -29,8 +29,10 @@ $(document).ready(() => {
       $('#name-prompt-container').empty()
       $('#name-prompt-container').append(
         $('<span>').addClass('fa fa-2x fa-spinner fa-pulse'))
+      $('#name-prompt-container').append(
+        $('<h1>').setAttribute("value", "Waiting for other players..."))
       socket.emit('new-player', { name }, () => {
-        $('#name-prompt-overlay').remove()
+        //$('#name-prompt-overlay').remove()
         $('#canvas').focus()
       })
     } else {
