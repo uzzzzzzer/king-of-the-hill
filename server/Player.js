@@ -106,7 +106,8 @@ class Player extends Entity {
     this.boundToWorld()
     this.tankAngle = Util.normalizeAngle(
       this.tankAngle + this.turnRate * deltaTime)
-
+    this.king = 0
+    this.tomato = ((lastUpdateTime - this.last_tomato) < Constants.TOMATO_TIME) * 1
     this.updatePowerups()
     if(this.army <= 0){
       var vct = [0, 0]
