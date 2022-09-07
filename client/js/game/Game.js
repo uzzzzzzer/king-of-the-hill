@@ -86,6 +86,7 @@ class Game {
    * Starts the animation and update loop to run the game.
    */
   run() {
+    this.running = 1
     const currentTime = Date.now()
     this.deltaTime = currentTime - this.lastUpdateTime
     this.lastUpdateTime = currentTime
