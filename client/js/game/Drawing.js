@@ -167,7 +167,8 @@ class Drawing {
     this.context.textAlign = 'center'
     this.context.font = Constants.DRAWING_NAME_FONT
     this.context.fillStyle = Constants.DRAWING_NAME_COLOR
-    this.context.fillText("Time left: " + time, 0, -this.height * 0.9)
+    this.context.fillText("Time left: " + time, 0, 0)
+    console.log(canvasCoords.x, canvasCoords.y)
     this.context.restore()
   }
 
