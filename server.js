@@ -61,7 +61,7 @@ io.on('connection', socket => {
 
   socket.on(Constants.SOCKET_PLAYER_ACTION, data => {
     if(typeof sockets.get(socket.id) != 'undefined'){
-      let game = games[sockets[socket.id]]
+      let game = games[sockets.get(socket.id)]
       game.updatePlayerOnInput(socket.id, data)
     }
     else{
