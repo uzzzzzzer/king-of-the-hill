@@ -44,7 +44,7 @@ class Game {
     this.animationFrameId = null
     this.lastUpdateTime = 0
     this.deltaTime = 0
-    this.time_left = Constants.GAME_TIME
+    this.timeLeft = Constants.GAME_TIME
   }
 
   /**
@@ -115,6 +115,7 @@ class Game {
     this.projectiles = state.projectiles
     this.powerups = state.powerups
     this.additional_objects = state.additional
+    this.timeLeft = state.time_left
 
     this.viewport.updateTrackingPosition(state.self)
     this.leaderboard.update(state.players)
@@ -168,6 +169,8 @@ class Game {
       this.players.forEach(tank => this.drawing.drawTank(false, tank))
       
       this.drawing.drawTank(true, this.self)
+      
+      this.drawing.drawTime(this.timeLeft)
     }
   }
 }
