@@ -1,4 +1,4 @@
-const Constants = require('../../../lib/Constants')
+const Constants = require('../../lib/Constants')
 
 function get_ai_action(index, players){
 	var self = players[index].position
