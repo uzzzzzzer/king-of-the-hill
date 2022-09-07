@@ -45,7 +45,7 @@ class Game {
     //this.players.set("Bot[1]", Player.create("JIGIT", "Bot[1]"))
     //this.players.set("Bot[2]", Player.create("ZLOY NEGR", "Bot[2]"))
 
-    this.lastUpdateTime = 0
+    this.lastUpdateTime = Date.now()
     this.deltaTime = 0
     this.full = 0
     this.gameTime = 0
