@@ -288,7 +288,8 @@ class Game {
         players: players,
         projectiles: this.projectiles,
         powerups: this.powerups,
-        additional: this.additional_objects
+        additional: this.additional_objects,
+        time_left: Math.max(0, Constants.GAME_TIME - this.gameTime)
       })
     })
   }
