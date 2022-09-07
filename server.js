@@ -101,7 +101,9 @@ io.on('connection', socket => {
 setInterval(() => {
   for(var i = 0; i < games.length; i++){
     let game = games[i]
-    game.checkIfFull()
+    if(!game.full){
+      game.checkIfFull()
+    }
     if(game.full){
       game.update()
       game.sendState()
