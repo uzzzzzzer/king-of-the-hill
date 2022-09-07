@@ -43,10 +43,11 @@ app.get('/', (request, response) => {
 io.on('connection', socket => {
   socket.on(Constants.SOCKET_NEW_PLAYER, (data, callback) => {
     game.addNewPlayer(data.name, socket)
-    io.sockets.emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
+    game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
       name: CHAT_TAG,
       message: `${data.name} has joined the game.`,
       isNotification: true
+    })
     })
     callback()
   })
@@ -65,12 +66,13 @@ io.on('connection', socket => {
 
   socket.on(Constants.SOCKET_DISCONNECT, () => {
     const name = game.removePlayer(socket.id)
-    io.sockets.emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
+    game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
       name: CHAT_TAG,
       message: ` ${name} has left the game.`,
       isNotification: true
     })
   })
+ })
 })
 
 /**
