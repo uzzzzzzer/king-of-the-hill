@@ -225,32 +225,39 @@ class Player extends Entity {
   spawn() {
     var m = Math.random();
     if(m > 0){
-    var vct = new Vector(Constants.WORLD_MIN + Constants.WORLD_PADDING,
+    let vct = new Vector(Constants.WORLD_MIN + Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))
+    this.castle = new Castle(vct, Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
+    this.position = vct
     }
     if(m > 0.25){
-    var vct = new Vector(Constants.WORLD_MAX - Constants.WORLD_PADDING,
+    let vct = new Vector(Constants.WORLD_MAX - Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))
+    this.castle = new Castle(vct, Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
+    this.position = vct
     }
     if(m > 0.5){
-    var vct = new Vector(
+    let vct = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MIN + Constants.WORLD_PADDING)
+    this.castle = new Castle(vct, Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
+    this.position = vct
     }
     if(m > 0.75){
-    var vct = new Vector(
+    let vct = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MAX - Constants.WORLD_PADDING)
+    this.castle = new Castle(vct, Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
+    this.position = vct
     }
     /*this.position = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING),
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))*/
-    this.castle = new Castle(Vector.fromArray([vct[0], vct[1]]), Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
-    this.position = vct
+    
     this.angle = Util.randRange(0, 2 * Math.PI)
     this.health = Constants.PLAYER_MAX_HEALTH
   }
