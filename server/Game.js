@@ -198,6 +198,8 @@ class Game {
           e2.army -= a
           e1.army = Math.max(e1.army, 0)
           e2.army = Math.max(e2.army, 0)
+          e1.last_fight = currentTime
+          e2.last_fight = currentTime
         }
         if (e1 instanceof Player && e2 instanceof Powerup) {
           e1.applyPowerup(e2)
