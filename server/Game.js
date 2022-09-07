@@ -148,6 +148,7 @@ class Game {
         e1.tomato = ((currentTime - e1.last_tomato) < Constants.TOMATO_TIME) * 1
       }
     }
+    var throne = 1
     for (let i = 0; i < entities.length; ++i) {
       for (let j = i + 1; j < entities.length; ++j) {
         let e1 = entities[i]
@@ -189,14 +190,22 @@ class Game {
           e2.destroyed = true
         }
         if (e1 instanceof Player && e2 instanceof Additional) {
-          if(e2.type == "top"){
+          if(e2.type == "top" && throne){
             e1.king = 1
+            throne = 0
             e1.time += this.deltaTime / 1000
             e1.position[0] = e2.position[0]
             e1.position[1] = e2.position[1]
           }
         }
-
+        if (e1 instanceof Player && e2 instanceof Castle) {
+          if(e2.owner == e1.SocketID){
+            e1.army += this.deltaTime * Constants.CASTLE_RECRUITS
+          }
+          else{
+            e1.army -= this.deltaTime * Constants.CASTLE_POWER
+          }
+        }
         // Bullet-Bullet interaction
         
         if (e1 instanceof Bullet && e2 instanceof Bullet &&
