@@ -151,6 +151,11 @@ class Game {
             Math.min(e1.position.x, e1.position.y) <= Constants.WORLD_MIN){
           e1.destroyed = true;
         }
+        if (e1 instanceof Player && e2 instanceof Player) {
+          if(e2.castle.collided(e1)){
+            e1.army -= this.deltaTime * Constants.CASTLE_POWER
+          }
+        }
         if (!e1.collided(e2)) {
           continue
         }
@@ -197,15 +202,6 @@ class Game {
             e1.time += this.deltaTime / 1000
             e1.position[0] = e2.position[0]
             e1.position[1] = e2.position[1]
-          }
-        }
-        if (e1 instanceof Player && e2 instanceof Castle) {
-          console.log(e2.owner, e1.socketID)
-          if(e2.owner == e1.socketID){
-            e1.army += this.deltaTime * Constants.CASTLE_RECRUITS
-          }
-          else{
-            e1.army -= this.deltaTime * Constants.CASTLE_POWER
           }
         }
         // Bullet-Bullet interaction
