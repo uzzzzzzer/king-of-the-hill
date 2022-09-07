@@ -152,6 +152,11 @@ class Game {
           e1.destroyed = true;
         }
         if (e1 instanceof Player && e2 instanceof Player) {
+          if(e2.castle.collided(e1.castle)){
+            e1.spawn()
+          }
+        }
+        if (e1 instanceof Player && e2 instanceof Player) {
           if(e2.castle.collided(e1)){
             e1.army -= this.deltaTime * Constants.CASTLE_POWER
           }
