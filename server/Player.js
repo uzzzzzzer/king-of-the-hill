@@ -107,6 +107,9 @@ class Player extends Entity {
     this.tankAngle = Util.normalizeAngle(
       this.tankAngle + this.turnRate * deltaTime)
     this.king = 0
+    if(this.collided(this.castle)){
+      this.army += deltaTime * Constants.CASTLE_RECRUITS
+    }
     this.tomato = ((lastUpdateTime - this.last_tomato) < Constants.TOMATO_TIME) * 1
     this.updatePowerups()
     if(this.army <= 0){
