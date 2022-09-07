@@ -49,7 +49,7 @@ io.on('connection', socket => {
     if([...game.players.values()].length >= Constants.PLAYERS_IN_ROOM){
       games.push(new Game())
     }
-    sockets.set(socket, games.length - 1)
+    sockets.set(socket.id, games.length - 1)
     game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
       name: CHAT_TAG,
       message: `${data.name} has joined the game.`,
