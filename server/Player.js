@@ -6,6 +6,7 @@
 
 const Bullet = require('./Bullet')
 const Powerup = require('./Powerup')
+const Castle = require('./Castle')
 
 const Constants = require('../lib/Constants')
 const Entity = require('../lib/Entity')
@@ -51,6 +52,7 @@ class Player extends Entity {
     this.tomato = 0
     this.in_castle = 0
     this.army = 0
+    this.castle = new Castle(Vector.zero(), Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
   }
 
   /**
@@ -249,6 +251,7 @@ class Player extends Entity {
         Constants.WORLD_MAX - Constants.WORLD_PADDING))*/
     this.angle = Util.randRange(0, 2 * Math.PI)
     this.health = Constants.PLAYER_MAX_HEALTH
+    this.castle = new Castle(this.position, Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
   }
 }
 
