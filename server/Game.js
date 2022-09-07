@@ -47,6 +47,8 @@ class Game {
 
     this.lastUpdateTime = 0
     this.deltaTime = 0
+    this.gameTime = 0
+    this.full = 0
   }
 
   /**
@@ -75,7 +77,11 @@ class Game {
     this.clients.set(socket.id, socket)
     this.players.set(socket.id, Player.create(name, socket.id))
   }
-
+  checkIfFull(){
+    if(this.players.length >= Constants.PLAYERS_IN_ROOM){
+      this.full = true
+    }
+  }
   /**
    * Removes the player with the given socket ID and returns the name of the
    * player removed.
@@ -128,6 +134,7 @@ class Game {
     const currentTime = Date.now()
     this.deltaTime = currentTime - this.lastUpdateTime
     this.lastUpdateTime = currentTime
+    this.gameTime += this.deltaTime
 
     /**
      * Perform a physics update and collision update for all entities
