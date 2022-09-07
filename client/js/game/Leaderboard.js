@@ -37,7 +37,8 @@ class Leaderboard {
       const containercontainer = document.createElement('li')
       //const text =
       //  `${player.name} - Kills: ${player.kills} Deaths: ${player.deaths}`
-      const text = `${player.name} - Time on the throne: ${Math.floor(player.time)} ${'👑'.repeat(player.king)}  ${'🍅'.repeat(player.tomato)}`
+      const text = `${player.name} - Time on the throne: ${Math.floor(player.time)}
+      ${'👑'.repeat(player.king)}  ${'🍅'.repeat(player.tomato)} ${'⚔'.repeat(player.fight)}`
       containercontainer.appendChild(document.createTextNode(text))
       this.container.appendChild(containercontainer)
     })
