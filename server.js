@@ -104,6 +104,9 @@ io.on('connection', socket => {
  * clients every update.
  */
 setInterval(() => {
+   if([...games[games.length - 1].players.values()].length >= Constants.PLAYERS_IN_ROOM){
+      games.push(new Game())
+   }
   for(var i = 0; i < games.length; i++){
     let game = games[i]
     if(!game.full){
