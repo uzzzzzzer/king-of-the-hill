@@ -79,7 +79,6 @@ class Game {
   }
   checkIfFull(){
     this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM
-    console.log([...this.players.values()].length)
   }
   /**
    * Removes the player with the given socket ID and returns the name of the
