@@ -100,7 +100,6 @@ io.on('connection', socket => {
  */
 setInterval(() => {
   for(var i = 0; i < games.length; i++){
-    console.log(games.length)
     let game = games[i]
     game.checkIfFull()
     if(game.full){
@@ -108,6 +107,7 @@ setInterval(() => {
       game.sendState()
     }
     if(game.finished){
+      console.log("svinja")
       var ps = [...game.players.keys()]
       for(var j = 0; j < ps.length; j++){
         if(sockets.get(ps[j]) <= i){
