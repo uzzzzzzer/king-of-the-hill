@@ -50,6 +50,7 @@ class Game {
     this.full = 0
     this.gameTime = 0
     this.finished = 0
+    this.waitTime = 0
   }
 
   /**
@@ -79,9 +80,14 @@ class Game {
     this.players.set(socket.id, Player.create(name, socket.id))
   }
   checkIfFull(){
-    this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM - Constants.MAX_BOTS
-    for(var i = 0; i < Constants.PLAYERS_IN_ROOM - [...this.players.values()].length; i++){
-      this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + i + ")", "Bot[" + i + "]"))
+    const currentTime = Date.now()
+    this.deltaTime = currentTime - this.lastUpdateTime
+    this.waitTime += this.deltaTime
+    this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM - Constants.MAX_BOTS * (this.waitTime >= Constants.MAX_WAIT_TIME)
+    if(this.full){
+      for(var i = 0; i < Constants.PLAYERS_IN_ROOM - [...this.players.values()].length; i++){
+        this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + i + ")", "Bot[" + i + "]"))
+      }
     }
     this.lastUpdateTime = Date.now()
   }
