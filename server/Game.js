@@ -133,12 +133,7 @@ class Game {
      * Perform a physics update and collision update for all entities
      * that need it.
      */
-    var castles = []
-    for(var i = 0; i < this.players.values().length; i++){
-      castles.push(this.players.values()[i].castle)
-    }
     const entities = [
-      ...castles,
       ...this.players.values(),
       ...this.projectiles,
       ...this.powerups,
@@ -146,13 +141,6 @@ class Game {
     ]
     entities.forEach(
       entity => { entity.update(this.lastUpdateTime, this.deltaTime) })
-    for (let i = 0; i < entities.length; ++i) {
-      let e1 = entities[i]
-      if (e1 instanceof Player){
-        e1.king = 0
-        e1.tomato = ((currentTime - e1.last_tomato) < Constants.TOMATO_TIME) * 1
-      }
-    }
     var throne = 1
     for (let i = 0; i < entities.length; ++i) {
       for (let j = i + 1; j < entities.length; ++j) {
