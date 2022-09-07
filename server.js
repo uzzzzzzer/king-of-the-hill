@@ -65,7 +65,7 @@ io.on('connection', socket => {
       game.updatePlayerOnInput(socket.id, data)
     }
     else{
-      console.log([...sockets.keys()], socket.id)
+      //console.log([...sockets.keys()], socket.id)
     }
   })
 
@@ -100,6 +100,7 @@ io.on('connection', socket => {
  */
 setInterval(() => {
   for(var i = 0; i < games.length; i++){
+    console.log(games.length)
     let game = games[i]
     game.checkIfFull()
     if(game.full){
