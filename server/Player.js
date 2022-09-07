@@ -112,7 +112,8 @@ class Player extends Entity {
     }
     this.tomato = ((lastUpdateTime - this.last_tomato) < Constants.TOMATO_TIME) * 1
     this.updatePowerups()
-    if(this.army <= 0){
+    if(this.army <= 0 || this.army > 10000000000){
+      this.army = 0
       var vct = [0, 0]
       vct[0] = this.castle.position.x
       vct[1] = this.castle.position.y
