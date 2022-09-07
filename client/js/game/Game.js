@@ -12,7 +12,7 @@ const Viewport = require('./Viewport')
 const Constants = require('../../../lib/Constants')
 const Vector = require('../../../lib/Vector')
 const Util = require('../../../lib/Util')
-
+const $ = require('jquery')
 /**
  * Game class.
  */
@@ -86,6 +86,7 @@ class Game {
    * Starts the animation and update loop to run the game.
    */
   run() {
+    $('#name-prompt-overlay').remove()
     this.running = 1
     const currentTime = Date.now()
     this.deltaTime = currentTime - this.lastUpdateTime
