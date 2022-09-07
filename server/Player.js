@@ -250,13 +250,13 @@ class Player extends Entity {
         Constants.WORLD_MAX - Constants.WORLD_PADDING),
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))*/
-    this.castle = new Castle(vct, Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
+    this.castle = new Castle(new Vector(vct[0], vct[1]), Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
     var vctCopy = []
 
     for (var i = 0; i < vct.length; i++) {
       vctCopy[i] = vct[i]
     }
-    this.position = vctCopy
+    this.position = new Vector(vctCopy[0], vctCopy[1])
     this.angle = Util.randRange(0, 2 * Math.PI)
     this.health = Constants.PLAYER_MAX_HEALTH
   }
