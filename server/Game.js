@@ -80,6 +80,7 @@ class Game {
   }
   checkIfFull(){
     this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM
+    this.lastUpdateTime = Date.now()
   }
   /**
    * Removes the player with the given socket ID and returns the name of the
