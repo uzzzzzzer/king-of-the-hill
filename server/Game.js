@@ -47,12 +47,6 @@ class Game {
 
     this.lastUpdateTime = 0
     this.deltaTime = 0
-    const entities = [
-      ...this.players.values()
-      ]
-    for (let i = 0; i < entities.length; ++i) {
-      entities[i].army = 0
-    }
   }
 
   /**
