@@ -270,6 +270,7 @@ class Player extends Entity {
     this.position = new Vector(vctCopy[0], vctCopy[1])
     this.angle = Util.randRange(0, 2 * Math.PI)
     this.health = Constants.PLAYER_MAX_HEALTH
+    this.army = 0
   }
 }
 
