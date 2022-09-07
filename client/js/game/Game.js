@@ -33,6 +33,7 @@ class Game {
     this.drawing = drawing
     this.input = input
     this.leaderboard = leaderboard
+    this.running = 0
 
     this.self = null
     this.players = []
@@ -79,20 +80,7 @@ class Game {
       this.onReceiveGameState.bind(this))
   }
 
-  /**
-   * Socket event handler.
-   * @param {Object} state The game state received from the server
-   */
-  onReceiveGameState(state) {
-    this.self = state.self
-    this.players = state.players
-    this.projectiles = state.projectiles
-    this.powerups = state.powerups
-    this.additional_objects = state.additional
 
-    this.viewport.updateTrackingPosition(state.self)
-    this.leaderboard.update(state.players)
-  }
 
   /**
    * Starts the animation and update loop to run the game.
@@ -105,6 +93,24 @@ class Game {
     this.update()
     this.draw()
     this.animationFrameId = window.requestAnimationFrame(this.run.bind(this))
+  }
+  
+  /**
+   * Socket event handler.
+   * @param {Object} state The game state received from the server
+   */
+  onReceiveGameState(state) {
+    if(!this.running){
+      this.run()
+    }
+    this.self = state.self
+    this.players = state.players
+    this.projectiles = state.projectiles
+    this.powerups = state.powerups
+    this.additional_objects = state.additional
+
+    this.viewport.updateTrackingPosition(state.self)
+    this.leaderboard.update(state.players)
   }
 
   /**
