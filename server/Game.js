@@ -264,11 +264,13 @@ class Game {
    * Sends the state of the game to all connected players.
    */
   sendState() {
-    const players = [...this.players.values()]
+    let players = [...this.players.values()]
+    players.sort((a, b) => { return b.time - a.time })
     this.clients.forEach((client, socketID) => {
       const currentPlayer = this.players.get(socketID)
       this.clients.get(socketID).emit(Constants.SOCKET_UPDATE, {
         finished: this.finished,
+        winner: players[0].name,
         self: currentPlayer,
         players: players,
         projectiles: this.projectiles,
