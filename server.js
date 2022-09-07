@@ -37,6 +37,10 @@ app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, 'views/index.html'))
 })
 
+app.get('/end', (request, response) => {
+  response.sendFile(path.join(__dirname, 'views/end.html'))
+})
+
 /**
  * Server side input handler, modifies the state of the players and the
  * game based on the input it receives. Everything runs asynchronously with
