@@ -98,6 +98,7 @@ class Drawing {
     }
 
     //this.context.rotate(Drawing.translateAngle(player.tankAngle))
+    console.log(isSelf)
     this.drawCenteredImage(this.images[
       // eslint-disable-next-line multiline-ternary
       !isSelf ? Constants.DRAWING_IMG_SELF_KING :
