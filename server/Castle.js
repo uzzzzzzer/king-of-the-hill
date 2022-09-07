@@ -15,7 +15,7 @@ class Castle extends Entity {
    * @constructor
    * @param {Vector} position The starting position vector
    * @param {Vector} velocity The starting velocity vector
-   * @param {number} angle The orientation of the bullet
+   * @param {number} angle The orientation of the castle
    * @param {string} type The type of this object
    */
   constructor(position, velocity, angle, owner, hitbox_size) {
