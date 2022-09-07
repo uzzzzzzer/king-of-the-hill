@@ -39,9 +39,9 @@ class Game {
     new Additional(Vector.fromArray([Constants.WORLD_MAX/2, Constants.WORLD_MAX/2]), Vector.zero(), 0, "top", 0)
     ]
     var names = ["JIGIT", "ZLOY NEGR", "KING", "(-_-)", "(•_•)", "King of the hill", "Evil king"];
-    for(var i = 0; i < Constants.MAX_BOTS; i++){
+    /*for(var i = 0; i < Constants.MAX_BOTS; i++){
       this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + i + ")", "Bot[" + i + "]"))
-    }
+    }*/
     //this.players.set("Bot[1]", Player.create("JIGIT", "Bot[1]"))
     //this.players.set("Bot[2]", Player.create("ZLOY NEGR", "Bot[2]"))
 
@@ -79,7 +79,10 @@ class Game {
     this.players.set(socket.id, Player.create(name, socket.id))
   }
   checkIfFull(){
-    this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM
+    this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM - Constants.MAX_BOTS
+    for(var i = 0; i < Constants.PLAYERS_IN_ROOM - [...this.players.values()].length; i++){
+      this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + i + ")", "Bot[" + i + "]"))
+    }
     this.lastUpdateTime = Date.now()
   }
   /**
