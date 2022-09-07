@@ -184,10 +184,10 @@ class Game {
           e2 = entities[i]
         }
         if (e1 instanceof Player && e2 instanceof Player) {
-          var a = e1.army
-          var b = e2.army
-          e1.army -= this.deltaTime * b * Constants.PLAYER_DAMAGE
-          e2.army -= this.deltaTime * a * Constants.PLAYER_DAMAGE
+          var a = this.deltaTime * e1.army * Constants.PLAYER_DAMAGE
+          var b = this.deltaTime * e2.army * Constants.PLAYER_DAMAGE
+          e1.army -= b
+          e2.army -= a
           e1.army = Math.max(e1.army, 0)
           e2.army = Math.max(e2.army, 0)
         }
