@@ -121,10 +121,10 @@ class Drawing {
       this.drawCenteredImage(this.images[Constants.DRAWING_IMG_SELF_CASTLE])
       console.log(1)
     }
-    else{
+    /*else{
       this.drawCenteredImage(this.images[Constants.DRAWING_IMG_OTHER_CASTLE])
       console.log(2)
-    }
+    }*/
     this.context.restore()
   }
 
