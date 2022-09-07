@@ -102,12 +102,9 @@ class Game {
    * @param {Object} state The game state received from the server
    */
   onReceiveGameState(state) {
-    console.log(state)
     if(state.finished){
-      alert()
-      $('#name-prompt-overlay').show()
-      $('#txt').val(state.winner + " wins the game!")
-      return
+      localStorage.setItem('winner', state.winner)
+      window.location.replace("/end")
     }
     if(!this.running){
       this.run()
