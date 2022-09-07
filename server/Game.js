@@ -41,13 +41,18 @@ class Game {
     var names = ["JIGIT", "ZLOY NEGR", "KING", "(-_-)", "(•_•)", "King of the hill", "Evil king"];
     for(var i = 0; i < Constants.MAX_BOTS; i++){
       this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)], "Bot[" + i + "]"))
-      this.players["Bot[" + i + "]"].army = 0;
     }
     //this.players.set("Bot[1]", Player.create("JIGIT", "Bot[1]"))
     //this.players.set("Bot[2]", Player.create("ZLOY NEGR", "Bot[2]"))
 
     this.lastUpdateTime = 0
     this.deltaTime = 0
+    const entities = [
+      ...this.players.values()
+      ]
+    for (let i = 0; i < entities.length; ++i) {
+      entities[i].army = 0
+    }
   }
 
   /**
