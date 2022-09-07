@@ -3,6 +3,7 @@ const Constants = require('../../lib/Constants')
 function get_ai_action(index, players){
 	var self = players[index].position
 	var optimum = [1000000, 0, 0, 0, 0, 0]
+	var may_move = !players[index].collides(players[index].castle) || players[index].army >= (index % 5) * 10000
 	for(var i = 0; i < players.length; i++){
 		if(i != index){
 			var p = players[i].position
@@ -18,10 +19,10 @@ function get_ai_action(index, players){
 	}
 	data = {
 		"turretAngle": optimum[1],
-		"up": optimum[2] * (Math.random() > 0.5),
-		"down": optimum[3] * (Math.random() > 0.5),
-		"left": optimum[4] * (Math.random() > 0.5),
-		"right": optimum[5] * (Math.random() > 0.5),
+		"up": optimum[2] * (Math.random() > 0.5) * may_move,
+		"down": optimum[3] * (Math.random() > 0.5) * may_move,
+		"left": optimum[4] * (Math.random() > 0.5) * may_move,
+		"right": optimum[5] * (Math.random() > 0.5) * may_move,
 		"shoot": true
 	}
 	return data
