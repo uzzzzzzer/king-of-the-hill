@@ -108,6 +108,13 @@ class Player extends Entity {
       this.tankAngle + this.turnRate * deltaTime)
 
     this.updatePowerups()
+    if(this.army <= 0){
+      var vct = [0, 0]
+      vct[0] = this.castle.position.x
+      vct[1] = this.castle.position.y
+      this.position.x = vct[0]
+      this.position.y = vct[1]
+    }
   }
 
   /**
