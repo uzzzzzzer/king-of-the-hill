@@ -109,6 +109,10 @@ class Player extends Entity {
     this.king = 0
     if(this.collided(this.castle)){
       this.army += deltaTime * Constants.CASTLE_RECRUITS
+      this.in_castle = 1
+    }
+    else{
+      this.in_castle = 0
     }
     this.tomato = ((lastUpdateTime - this.last_tomato) < Constants.TOMATO_TIME) * 1
     this.updatePowerups()
