@@ -49,6 +49,7 @@ class Game {
     this.deltaTime = 0
     this.full = 0
     this.gameTime = 0
+    this.finished = 0
   }
 
   /**
@@ -133,6 +134,7 @@ class Game {
     this.deltaTime = currentTime - this.lastUpdateTime
     this.lastUpdateTime = currentTime
     this.gameTime += this.deltaTime
+    this.finished = this.gameTime > Constants.GAME_TIME
     /**
      * Perform a physics update and collision update for all entities
      * that need it.
@@ -265,6 +267,7 @@ class Game {
     this.clients.forEach((client, socketID) => {
       const currentPlayer = this.players.get(socketID)
       this.clients.get(socketID).emit(Constants.SOCKET_UPDATE, {
+        finished: this.finished,
         self: currentPlayer,
         players: players,
         projectiles: this.projectiles,
