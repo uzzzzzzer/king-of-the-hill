@@ -86,8 +86,8 @@ class Drawing {
     this.context.textAlign = 'center'
     this.context.font = Constants.DRAWING_NAME_FONT
     this.context.fillStyle = Constants.DRAWING_NAME_COLOR
-    this.context.fillText(player.name, 0, -60)
-     this.context.fillText(Math.ceil(player.army), 0, -50)
+    this.context.fillText(player.name, 0, -65)
+     this.context.fillText("Army size:" + Math.ceil(player.army), 0, -50)
     for (let i = 0; i < 10; ++i) {
       if (i < player.health) {
         this.context.fillStyle = Constants.DRAWING_HP_COLOR
