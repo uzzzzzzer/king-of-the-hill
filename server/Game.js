@@ -134,7 +134,7 @@ class Game {
      * that need it.
      */
     var castles = []
-    for(var i = 0;i < this.players.values().length; i++){
+    for(var i = 0; i < this.players.values().length; i++){
       castles.push(this.players.values()[i].castle)
     }
     const entities = [
@@ -212,6 +212,7 @@ class Game {
           }
         }
         if (e1 instanceof Player && e2 instanceof Castle) {
+          console.log(e2.owner, e1.socketID)
           if(e2.owner == e1.socketID){
             e1.army += this.deltaTime * Constants.CASTLE_RECRUITS
           }
