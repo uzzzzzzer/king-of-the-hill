@@ -102,10 +102,6 @@ setInterval(() => {
     if(game.full){
       game.update()
       game.sendState()
-      if(game.finished){
-        games.splice(i, 1)
-        i--
-      }
     }
   }
 }, FRAME_RATE)
