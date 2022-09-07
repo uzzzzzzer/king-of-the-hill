@@ -81,7 +81,7 @@ class Game {
   }
   checkIfFull(){
     const currentTime = Date.now()
-    this.deltaTime = currentTime - this.lastUpdateTime
+    this.deltaTime += currentTime - this.lastUpdateTime
     console.log(this.deltaTime)
     this.waitTime += this.deltaTime
     this.full = [...this.players.values()].length >= Constants.PLAYERS_IN_ROOM - Constants.MAX_BOTS * (this.waitTime >= Constants.MAX_WAIT_TIME)
