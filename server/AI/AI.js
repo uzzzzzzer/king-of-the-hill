@@ -1,3 +1,5 @@
+const Constants = require('../../../lib/Constants')
+
 function get_ai_action(index, players){
 	var self = players[index].position
 	var optimum = [1000000, 0, 0, 0, 0, 0]
@@ -8,7 +10,9 @@ function get_ai_action(index, players){
 			var deg =(Math.atan((self.y-p.y)/(self.x-p.x))*180/Math.PI) + 180 * ((self.x-p.x)<0) + 180
 			var eps = 2
 			if(dist < optimum[0]){
-				optimum = [dist, deg * Math.PI / 180, 1000 + eps < self.y, 1000 - eps > self.y, 1000 + eps < self.x, 1000 - eps > self.x]
+				optimum = [dist, deg * Math.PI / 180, Constants.WORLD_MAX/2 + eps < self.y,
+					   Constants.WORLD_MAX/2 - eps > self.y, Constants.WORLD_MAX/2 + eps < self.x,
+					   Constants.WORLD_MAX/2 - eps > self.x]
 			}
 		}
 	}
