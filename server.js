@@ -110,7 +110,6 @@ setInterval(() => {
       game.sendState()
     }
     if(game.finished){
-      console.log("svinja")
       var ps = [...game.players.keys()]
       for(var j = 0; j < ps.length; j++){
         if(sockets.get(ps[j]) <= i){
