@@ -159,6 +159,17 @@ class Drawing {
     this.drawCenteredImage(this.images[object.type])
     this.context.restore()
   }
+  
+  drawTime(time, pos) {
+    this.context.save()
+    const canvasCoords = this.viewport.toCanvas(pos)
+    this.context.translate(canvasCoords.x, canvasCoords.y)
+    this.context.textAlign = 'center'
+    this.context.font = Constants.DRAWING_NAME_FONT
+    this.context.fillStyle = Constants.DRAWING_NAME_COLOR
+    this.context.fillText(time, 0, -this.height * 0.9)
+    this.context.restore()
+  }
 
   /**
    * Draws the background tiles to the canvas.
