@@ -21,7 +21,7 @@ class Castle extends Entity {
   constructor(position, velocity, angle, owner, hitbox_size) {
     super(position, velocity, Vector.zero(), hitbox_size)
     this.owner = owner
-    this.type = type
+    this.owner = owner
     this.destroyed = false
   }
 
