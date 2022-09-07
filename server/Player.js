@@ -225,22 +225,22 @@ class Player extends Entity {
   spawn() {
     var m = Math.random();
     if(m > 0){
-    var vct = new Vector(Constants.WORLD_MIN + Constants.WORLD_PADDING,
+    const vct = new Vector(Constants.WORLD_MIN + Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))
     }
     if(m > 0.25){
-    var vct = new Vector(Constants.WORLD_MAX - Constants.WORLD_PADDING,
+    const vct = new Vector(Constants.WORLD_MAX - Constants.WORLD_PADDING,
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING))
     }
     if(m > 0.5){
-    var vct = new Vector(
+    const vct = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MIN + Constants.WORLD_PADDING)
     }
     if(m > 0.75){
-    var vct = new Vector(
+    const vct = new Vector(
       Util.randRange(Constants.WORLD_MIN + Constants.WORLD_PADDING,
         Constants.WORLD_MAX - Constants.WORLD_PADDING), Constants.WORLD_MAX - Constants.WORLD_PADDING)
     }
