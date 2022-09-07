@@ -152,8 +152,11 @@ class Game {
           e1.destroyed = true;
         }
         if (e1 instanceof Player && e2 instanceof Player) {
-          if(e2.castle.collided(e1.castle)){
+          if(e2.castle.collided(e1.castle) && e1.army < e2.army){
             e1.spawn()
+          }
+          else{
+            e2.spawn()
           }
         }
         if (e1 instanceof Player && e2 instanceof Player) {
