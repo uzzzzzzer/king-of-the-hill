@@ -60,7 +60,7 @@ io.on('connection', socket => {
   })
 
   socket.on(Constants.SOCKET_PLAYER_ACTION, data => {
-    if(typeof sockets.get(socket.id) !== 'undefined'){
+    if(typeof sockets.get(socket.id) != 'undefined'){
       let game = games[sockets[socket.id]]
       game.updatePlayerOnInput(socket.id, data)
     }
@@ -70,7 +70,7 @@ io.on('connection', socket => {
   })
 
   socket.on(Constants.SOCKET_CHAT_CLIENT_SERVER, data => {
-    //if(typeof sockets.get(socket.id) !== 'undefined'){
+    //if(typeof sockets.get(socket.id) != 'undefined'){
       let game = games[sockets.get(socket.id)]
       game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
         name: game.getPlayerNameBySocketId(socket.id),
@@ -81,7 +81,7 @@ io.on('connection', socket => {
   })
 
   socket.on(Constants.SOCKET_DISCONNECT, () => {
-    //if(typeof sockets[socket.id] !== 'undefined'){
+    //if(typeof sockets[socket.id] != 'undefined'){
       let game = games[sockets.get(socket.id)]
       const name = game.removePlayer(socket.id)
       game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
