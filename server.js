@@ -56,10 +56,11 @@ io.on('connection', socket => {
   })
 
   socket.on(Constants.SOCKET_CHAT_CLIENT_SERVER, data => {
-    io.sockets.emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
+    game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
       name: game.getPlayerNameBySocketId(socket.id),
       message: data
     })
+   })
   })
 
   socket.on(Constants.SOCKET_DISCONNECT, () => {
