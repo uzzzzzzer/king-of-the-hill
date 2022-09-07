@@ -1,6 +1,6 @@
 /**
  * This class handles the rendering and updating of the leaderboard.
- * @author alvin@omgimanerd.tech (Alvin Lin)
+ * @author Zloy Negr
  */
 
 /**
