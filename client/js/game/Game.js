@@ -170,7 +170,7 @@ class Game {
       
       this.drawing.drawTank(true, this.self)
       
-      this.drawing.drawTime(this.timeLeft, this.self.position)
+      this.drawing.drawTime(Math.ceil(this.timeLeft / 1000), this.self.position)
     }
   }
 }
