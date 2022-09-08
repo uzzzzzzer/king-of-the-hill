@@ -128,6 +128,7 @@ setInterval(() => {
         if(sockets.get(ps[j]) > i){
           console.log("Moved:" + ps[j] + " from " + sockets.get(ps[j]) + " to " + (sockets.get(ps[j]) - 1))
           sockets.set(ps[j], sockets.get(ps[j]) - 1)
+          console.log(sockets.get(ps[j]))
         }
       }
     }
