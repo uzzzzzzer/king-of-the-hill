@@ -90,7 +90,7 @@ class Game {
       console.log(this.waitTime, Constants.MAX_WAIT_TIME)
       for(var i = 0; i < b; i++){
         var names = ["JIGIT", "ZLOY NEGR", "KING", "(-_-)", "(•_•)", "King of the hill", "Evil king"];
-        this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + i + ")", "Bot[" + i + "]"))
+        this.players.set("Bot[" + i + "]", Player.create(names[Math.floor(Math.random() * names.length)] + "(" + [...this.players.values()].length + ")", "Bot[" + i + "]"))
       }
     }
     this.lastUpdateTime = Date.now()
