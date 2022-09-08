@@ -121,8 +121,10 @@ setInterval(() => {
       for(var j = 0; j < ps.length; j++){
         if(sockets.get(ps[j]) <= i){
           sockets.delete(ps[j])
+          console.log("Deleted:" + ps[j])
         }
         if(sockets.get(ps[j]) > i){
+          console.log("Moved:" + ps[j] + " from " + sockets.get(ps[j]) + " to " + (sockets.get(ps[j]) - 1))
           sockets.set(ps[j], sockets.get(ps[j]) - 1)
         }
       }
