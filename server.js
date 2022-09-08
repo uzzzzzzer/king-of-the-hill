@@ -116,7 +116,7 @@ setInterval(() => {
       game.update()
       game.sendState()
     }
-    if(game.finished){
+    if(game.finished && false){
       var ps = [...game.players.keys()]
       games.splice(i, 1)
       console.log("Removed game #" + i)
