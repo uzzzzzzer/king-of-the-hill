@@ -118,6 +118,8 @@ setInterval(() => {
     }
     if(game.finished){
       var ps = [...game.players.keys()]
+      games.splice(i, 1)
+      console.log("Removed game #" + i)
       for(var j = 0; j < ps.length; j++){
         if(sockets.get(ps[j]) <= i){
           sockets.delete(ps[j])
@@ -128,7 +130,6 @@ setInterval(() => {
           sockets.set(ps[j], sockets.get(ps[j]) - 1)
         }
       }
-      games.splice(i, 1)
     }
   }
 }, FRAME_RATE)
