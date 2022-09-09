@@ -17,12 +17,13 @@ function get_ai_action(index, players){
 			}
 		}
 	}
+	var r = Math.random()
 	data = {
 		"turretAngle": optimum[1],
-		"up": optimum[2] * (Math.random() > 0.5) * may_move,
-		"down": optimum[3] * (Math.random() > 0.5) * may_move,
-		"left": optimum[4] * (Math.random() > 0.5) * may_move,
-		"right": optimum[5] * (Math.random() > 0.5) * may_move,
+		"up": optimum[2] * (r > 0.5) * may_move,
+		"down": optimum[3] * (r > 0.5) * may_move,
+		"left": optimum[4] * (r < 0.5) * may_move,
+		"right": optimum[5] * (r < 0.5) * may_move,
 		"shoot": true
 	}
 	return data
