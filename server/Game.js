@@ -84,6 +84,9 @@ class Game {
     this.deltaTime = currentTime - this.lastUpdateTime
     this.waitTime += this.deltaTime
     //console.log(this.waitTime)
+    if([...this.players.values()].length == 0){
+      this.waitTime = 0
+    }
     this.full = [...this.players.values()].length >= (Constants.PLAYERS_IN_ROOM - Constants.MAX_BOTS * (this.waitTime >= Constants.MAX_WAIT_TIME))
     let b = Constants.PLAYERS_IN_ROOM - [...this.players.values()].length
     if(this.full){
