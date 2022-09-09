@@ -148,7 +148,7 @@ class Game {
    */
   update() {
     if(this.finished){
-      continue
+      return
     }
     const currentTime = Date.now()
     this.deltaTime = currentTime - this.lastUpdateTime
