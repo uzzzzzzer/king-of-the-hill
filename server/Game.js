@@ -147,6 +147,9 @@ class Game {
    * Updates the state of all the objects in the game.
    */
   update() {
+    if(this.finished){
+      continue
+    }
     const currentTime = Date.now()
     this.deltaTime = currentTime - this.lastUpdateTime
     this.lastUpdateTime = currentTime
