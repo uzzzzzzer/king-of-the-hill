@@ -112,7 +112,7 @@ setInterval(() => {
     if(!game.full){
       game.checkIfFull()
     }
-    if(game.full){
+    if(game.full && !game.finished){
       game.update()
       game.sendState()
     }
