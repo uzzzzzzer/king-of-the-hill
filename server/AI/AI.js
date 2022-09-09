@@ -3,7 +3,7 @@ const Constants = require('../../lib/Constants')
 function get_ai_action(index, players){
 	var self = players[index].position
 	var optimum = [1000000, 0, 0, 0, 0, 0]
-	var may_move = !players[index].in_castle || players[index].army >= (index % 5) * 1000 ||Math.random() < 1/5000
+	var may_move = !players[index].in_castle || players[index].army >= (index % 10) * 1000 ||Math.random() < 1/5000
 	for(var i = 0; i < players.length; i++){
 		if(i != index){
 			var p = players[i].position
