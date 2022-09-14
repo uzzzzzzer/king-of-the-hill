@@ -51,6 +51,7 @@ class Game {
     this.gameTime = 0
     this.finished = 0
     this.waitTime = 0
+    this.winner = ["Nobody", 0]
   }
 
   /**
@@ -234,10 +235,14 @@ class Game {
         if (e1 instanceof Player && e2 instanceof Additional) {
           if(e2.type == "top" && throne){
             e1.king = 1
-            throne = 0
+            //throne = 0
             e1.time += this.deltaTime / 1000
             e1.position[0] = e2.position[0]
             e1.position[1] = e2.position[1]
+            if(e1.time > this.winner[1]){
+              this.winner[1] = e1.time
+              this.winner[0] = e1.name
+            }
           }
         }
         // Bullet-Bullet interaction
@@ -285,6 +290,7 @@ class Game {
   sendState() {
     let players = [...this.players.values()]
     players.sort((a, b) => { return b.time - a.time })
+    
     this.clients.forEach((client, socketID) => {
       const currentPlayer = this.players.get(socketID)
       this.clients.get(socketID).emit(Constants.SOCKET_UPDATE, {
