@@ -51,7 +51,7 @@ class Player extends Entity {
     this.last_tomato = 0
     this.tomato = 0
     this.in_castle = 0
-    this.army = 0
+    this.army = 1000
     this.castle = new Castle(Vector.zero(), Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
     this.last_fight = 0
     this.fight = 0
