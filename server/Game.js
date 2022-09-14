@@ -295,7 +295,7 @@ class Game {
       const currentPlayer = this.players.get(socketID)
       this.clients.get(socketID).emit(Constants.SOCKET_UPDATE, {
         finished: this.finished,
-        winner: players[0].name,
+        winner: this.winner,
         self: currentPlayer,
         players: players,
         projectiles: this.projectiles,
