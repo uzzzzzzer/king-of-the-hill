@@ -51,7 +51,7 @@ class Player extends Entity {
     this.last_tomato = 0
     this.tomato = 0
     this.in_castle = 0
-    this.army = 1000
+    this.army = 0
     this.castle = new Castle(Vector.zero(), Vector.zero(), 0, this.socketID, Constants.CASTLE_DEFAULT_HITBOX_SIZE)
     this.last_fight = 0
     this.fight = 0
@@ -120,7 +120,7 @@ class Player extends Entity {
     this.fight = ((lastUpdateTime - this.last_fight) < Constants.FIGHT_TIME) * 1
     this.updatePowerups()
     if(this.army <= 0 || this.army > 10000000000){
-      this.army = 1000
+      this.army = 0
       var vct = [0, 0]
       vct[0] = this.castle.position.x
       vct[1] = this.castle.position.y
