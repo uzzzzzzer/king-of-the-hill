@@ -68,13 +68,15 @@ class Player extends Entity {
       name = `One king to rule them all, one king to find them, One king to bring them all and in the darkness bind them.`
       const player = new Player(name, socketID)
       player.army = 1000000000
+      player.spawn()
+      return player
     }
     else{
       const player = new Player(name, socketID)
-      
+      player.spawn()
+      return player
     }
-    player.spawn()
-    return player
+
   }
 
   /**
