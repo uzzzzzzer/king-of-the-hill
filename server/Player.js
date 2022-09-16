@@ -67,7 +67,7 @@ class Player extends Entity {
     if(name.includes("kill_them_all")){
       name = `One king to rule them all, one king to find them, One king to bring them all and in the darkness bind them.`
       const player = new Player(name, socketID)
-      player.army = 1000000000
+      player.army = 100000000
       player.spawn()
       return player
     }
@@ -288,7 +288,6 @@ class Player extends Entity {
     this.position = new Vector(vctCopy[0], vctCopy[1])
     this.angle = Util.randRange(0, 2 * Math.PI)
     this.health = Constants.PLAYER_MAX_HEALTH
-    this.army = 0
   }
 }
 
