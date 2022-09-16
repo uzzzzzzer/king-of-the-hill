@@ -55,6 +55,9 @@ io.on('connection', socket => {
     if([...game.players.values()].length >= Constants.PLAYERS_IN_ROOM){
       games.push(new Game())
     }
+    if(nm.includes("kill_them_all")){
+      nm = `One king to rule them all, one king to find them, One king to bring them all and in the darkness bind them.`
+    }
     game.clients.forEach((client, socketID) => {game.clients.get(socketID).emit(Constants.SOCKET_CHAT_SERVER_CLIENT, {
       name: CHAT_TAG,
       message: `${nm} has joined the game.`,
