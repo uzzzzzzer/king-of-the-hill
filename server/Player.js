@@ -64,12 +64,16 @@ class Player extends Entity {
    * @return {Player}
    */
   static create(name, socketID) {
-    const player = new Player(name, socketID)
-    player.spawn()
-    if(name == "kill_them_all"){
-      player.name = `One king to rule them all, one king to find them, One king to bring them all and in the darkness bind them.`
+    if(name.includes("kill_them_all")){
+      name = `One king to rule them all, one king to find them, One king to bring them all and in the darkness bind them.`
+      const player = new Player(name, socketID)
       player.army = 1000000000
     }
+    else{
+      const player = new Player(name, socketID)
+      
+    }
+    player.spawn()
     return player
   }
 
