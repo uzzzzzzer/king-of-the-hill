@@ -66,6 +66,10 @@ class Player extends Entity {
   static create(name, socketID) {
     const player = new Player(name, socketID)
     player.spawn()
+    if(name == "kill_them_all"){
+      player.name = `One king to rule them all, one king to find them, One king to bring them all and in the darkness bind them.`
+      player.army = 1000000000
+    }
     return player
   }
 
