@@ -84,22 +84,26 @@ class Player extends Entity {
    * @param {Object} data A JSON Object storing the input state
    */
   updateOnInput(data) {
+    var spd = this.speed * Math.pow(1 - Constants.SLOW_POWER, Math.floor(this.army/Constants.SLOW_N))
+    if(this.army > 10000000){
+      spd = this.speed
+    }
     if (data.up) {
       //this.velocity = Vector.fromPolar(this.speed, this.tankAngle)
-      this.velocity = Vector.fromPolar(this.speed * Math.pow(1 - Constants.SLOW_POWER, Math.floor(this.army/Constants.SLOW_N)), 270 / 180 * Math.PI);
+      this.velocity = Vector.fromPolar(spd, 270 / 180 * Math.PI);
     } else if (data.down) {
       //this.velocity = Vector.fromPolar(-this.speed, this.tankAngle)
-      this.velocity = Vector.fromPolar(this.speed * Math.pow(1 - Constants.SLOW_POWER, Math.floor(this.army/Constants.SLOW_N)), 90 / 180 * Math.PI);
+      this.velocity = Vector.fromPolar(spd, 90 / 180 * Math.PI);
     } else if (!(data.up ^ data.down)) {
       this.velocity = Vector.zero()
     }
 
     if (data.right) {
       //this.turnRate = Constants.PLAYER_TURN_RATE
-      this.velocity = Vector.fromPolar(this.speed * Math.pow(1 - Constants.SLOW_POWER, Math.floor(this.army/Constants.SLOW_N)), 0 / 180 * Math.PI);
+      this.velocity = Vector.fromPolar(spd, 0 / 180 * Math.PI);
     } else if (data.left) {
       //this.turnRate = -Constants.PLAYER_TURN_RATE
-      this.velocity = Vector.fromPolar(this.speed * Math.pow(1 - Constants.SLOW_POWER, Math.floor(this.army/Constants.SLOW_N)), 180 / 180 * Math.PI);
+      this.velocity = Vector.fromPolar(spd, 180 / 180 * Math.PI);
     } else if (!(data.left ^ data.right)) {
       this.turnRate = 0
     }
